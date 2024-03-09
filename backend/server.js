@@ -1,0 +1,12 @@
+let express = require('express')
+const DbConnect = require('./DB')
+let userRoute = require("./Route/userRoute")
+let cors = require('cors')
+let app = express()
+app.use(cors())
+app.use(express.json())
+app.use(userRoute)
+app.listen(8080, async()=>{
+   await DbConnect()
+    console.log("server is start at 8080")
+})
